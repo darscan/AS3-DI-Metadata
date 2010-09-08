@@ -24,15 +24,13 @@ Swiz: [Inject(source="SomeName")] (above property, setter or method)
 Spicelib: [Inject(id="SomeName")] (above property, setter or method)
 Spring AS: [Autowired(name="SomeName")] (above property, setter or method)
 
-Since you can define default attributes best practice could be to leave out the attribute: [Inject("SomeName")]
-
 h4. Most popular
 
 [Inject(name="SomeName")] by 3
 
 h4. Notes
 
-These kinds of injections are commonly referred to as "named injections", let's use "name".
+Since you can define default attributes best practice could be to leave out the attribute: [Inject("SomeName")]
 
 h3. Constructor Injection:
 
