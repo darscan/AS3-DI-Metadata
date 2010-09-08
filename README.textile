@@ -1,0 +1,80 @@
+h2. What a Metamess
+
+Spring Actionscript, Dawn, SmartyPants, Swiz, Spicelib (used by Parsley) and SwiftSuspenders (used by Robotlegs) perform Dependency Injection.
+
+Moreover they can all perform automatic DI by parsing class metadata. It would be grand if the common DI related metadata tags could be standardised. That way we really could write code that is decoupled from any particular framework.
+
+h3. Injection by Type
+
+Dawn, Swiz, Spicelib, SwiftSuspenders, SmartyPants: [Inject] (above property, setter or method)
+Spring AS: [Autowire] (above property, setter or method)
+
+h4. Most popular
+
+[Inject] by 5
+
+h4. Notes
+
+[Inject] is clear and simple and used by almost all of the libraries. Let's use it.
+
+h3. Injection by Name/Id
+
+Dawn, SwiftSuspenders, SmartyPants: [Inject(name="SomeName")] (above property, setter or method)
+Swiz: [Inject(source="SomeName")] (above property, setter or method)
+Spicelib: [Inject(id="SomeName")] (above property, setter or method)
+Spring AS: [Autowired(name="SomeName")] (above property, setter or method)
+
+h4. Most popular
+
+[Inject(name="SomeName")] by 3
+
+h4. Notes
+
+These kinds of injections are commonly referred to as "named injections", let's use "name".
+
+h3. Constructor Injection:
+
+SwiftSuspenders: [Inject] (above class)
+Spicelib: [InjectConstructor] (above class)
+Swiz, Spring AS, Dawn: ?
+
+h4. Most popular
+
+?
+
+h4. Notes
+
+I don't see the need for an extra tag ([InjectConstructor]) when we could simply use [Inject].
+
+h3. Object Lifecycle - Post Injection:
+
+Dawn, SwiftSuspenders, SmartyPants, Swiz: [PostConstruct] (above method)
+Spicelib: [Init] (above method)
+
+h4. Most popular
+
+[PostConstruct] by 4
+
+h4. Notes
+
+Let's use the most popular one.
+
+h3. Object Lifecycle - Teardown:
+
+SwiftSuspenders, SmartyPants, Dawn: none?
+Swiz: [PreDestroy] (above method)
+Spicelib: [Destroy] (above method)
+
+h4. Most popular
+
+h4. Notes
+
+h3. Factory/Provider:
+
+SwiftSuspenders, SmartyPants, Swiz: none?
+Dawn: [Provider] (above method)
+Spicelib: [Factory] (above method)
+
+h4. Most popular
+
+h4. Notes
