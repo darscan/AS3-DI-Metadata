@@ -15,7 +15,7 @@ h4. Most popular
 
 h4. Notes
 
-[Inject] is clear and simple and used by almost all of the libraries. Let's use it.
+[Inject] is clear and simple and used by almost all of the libraries. It also directly correlates to @Inject from the JSR-330 Dependency Injection for Java specification. Let's use it.
 
 h3. Injection by Name/Id
 
@@ -57,7 +57,7 @@ h4. Most popular
 
 h4. Notes
 
-Let's use the most popular one.
+@PostConstruct is used in Java for the same purpose. Let's use the most popular, established one.
 
 h3. Object Lifecycle - Teardown:
 
@@ -68,6 +68,8 @@ Spicelib: [Destroy] (above method)
 h4. Most popular
 
 h4. Notes
+
+@PreDestroy is used in Java for the same purpose. Let's use the most familiar, established one.
 
 h3. Factory/Provider:
 
