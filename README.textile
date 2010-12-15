@@ -73,6 +73,30 @@ h4. Notes
 
 [EventHandler] is clear in its purpose and intent. Flash Player is an event based runtime, so the standard should be based on Events.
 
+h4. To Be Determined: Arguments
+
+For example:
+
+<pre>
+  [EventHandler(name="login, type="domain.events.LoginEvent")]
+  public function handleLogin (event:LoginEvent) : void {
+</pre>
+
+Or, for sending the Event properties directly into the method:
+
+<pre>
+  [EventHandler(name="login, type="domain.events.LoginEvent", properties="user,role")]
+  public function handleLogin (user:User, role:String) : void {
+</pre>
+
+Swiz, for example supports this syntax:
+
+[EventHandler(event="com.foo.events.UserEvent.ADD_USER")]
+
+But I think it would be nice to keep things in line with how custom events are normally documented (with name and type arguments):
+
+[Event(name="click", type="flash.events.Event")]
+
 h3. Object Lifecycle - Teardown:
 
 SwiftSuspenders, SmartyPants, Dawn: none?
