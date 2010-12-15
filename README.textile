@@ -1,4 +1,4 @@
-h1. AS3 Metadata Standardisation Effort
+h1. AS3 DI-Related Metadata Standardisation Effort
 
 Spring Actionscript, Dawn, SmartyPants, Swiz, Spicelib (used by Parsley) and SwiftSuspenders (used by Robotlegs) perform Dependency Injection.
 
