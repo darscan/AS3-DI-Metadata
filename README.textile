@@ -91,10 +91,6 @@ h4. Most popular
 
 [EventHandler] by 1 or 2, depending on your perspective
 
-h4. Notes
-
-[EventHandler] is clear in its purpose and intent. Flash Player is an event based runtime, so the standard should be based on Events.
-
 h4. To Be Determined: Arguments
 
 For example:
@@ -118,3 +114,9 @@ Swiz, for example supports this syntax:
 But I think it would be nice to keep things in line with how custom events are normally documented (with name and type arguments):
 
 [Event(name="click", type="flash.events.Event")]
+
+h4. Notes
+
+[EventHandler] is clear in its purpose and intent. Flash Player is an event based runtime, so the standard should be based on Events.
+
+Is event handling outside of the scope of this document?
