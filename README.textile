@@ -59,6 +59,20 @@ h4. Notes
 
 @PostConstruct is used in Java for the same purpose. Let's use the most popular, established one.
 
+h3. Event handling
+
+Swiz and Spring AS: [EventHandler] above method
+Spicelib: [MessageHandler] (not specifically aimed at events)
+Dawn, SwiftSuspenders, SmartyPants: ?
+
+h4. Most popular
+
+[EventHandler] by 1 or 2, depending on your perspective
+
+h4. Notes
+
+[EventHandler] is clear in its purpose and intent. Flash Player is an event based runtime, so the standard should be based on Events.
+
 h3. Object Lifecycle - Teardown:
 
 SwiftSuspenders, SmartyPants, Dawn: none?
