@@ -1,10 +1,10 @@
-h2. What a Metamess
+h1. AS3 Metadata Standardisation Effort
 
 Spring Actionscript, Dawn, SmartyPants, Swiz, Spicelib (used by Parsley) and SwiftSuspenders (used by Robotlegs) perform Dependency Injection.
 
 Moreover they can all perform automatic DI by parsing class metadata. It would be grand if the common DI related metadata tags could be standardised. That way we really could write code that is decoupled from any particular framework.
 
-h3. Injection by Type
+h2. Injection by Type
 
 Dawn, Swiz, Spicelib, SwiftSuspenders, SmartyPants: [Inject] (above property, setter or method)
 Spring AS: [Autowire] (above property, setter or method)
@@ -17,7 +17,7 @@ h4. Notes
 
 [Inject] is clear and simple and used by almost all of the libraries. It also directly correlates to @Inject from the JSR-330 Dependency Injection for Java specification. Let's use it.
 
-h3. Injection by Name/Id
+h2. Injection by Name/Id
 
 Dawn, SwiftSuspenders, SmartyPants: [Inject(name="SomeName")] (above property, setter or method)
 Swiz: [Inject(source="SomeName")] (above property, setter or method)
@@ -32,7 +32,7 @@ h4. Notes
 
 Since you can define default attributes best practice could be to leave out the attribute: [Inject("SomeName")]
 
-h3. Constructor Injection:
+h2. Constructor Injection:
 
 SwiftSuspenders: [Inject] (above class)
 Spicelib: [InjectConstructor] (above class)
@@ -46,7 +46,7 @@ h4. Notes
 
 I don't see the need for an extra tag ([InjectConstructor]) when we could simply use [Inject].
 
-h3. Object Lifecycle - Post Injection:
+h2. Object Lifecycle - Post Injection:
 
 Dawn, SwiftSuspenders, SmartyPants, Swiz: [PostConstruct] (above method)
 Spicelib: [Init] (above method)
@@ -59,7 +59,29 @@ h4. Notes
 
 @PostConstruct is used in Java for the same purpose. Let's use the most popular, established one.
 
-h3. Event handling
+h2. Object Lifecycle - Teardown:
+
+SwiftSuspenders, SmartyPants, Dawn: none?
+Swiz: [PreDestroy] (above method)
+Spicelib: [Destroy] (above method)
+
+h4. Most popular
+
+h4. Notes
+
+@PreDestroy is used in Java for the same purpose. Let's use the most familiar, established one.
+
+h2. Factory/Provider:
+
+SwiftSuspenders, SmartyPants, Swiz: none?
+Dawn: [Provider] (above method)
+Spicelib: [Factory] (above method)
+
+h4. Most popular
+
+h4. Notes
+
+h2. Event handling
 
 Swiz and Spring AS: [EventHandler] above method
 Spicelib: [MessageHandler] (not specifically aimed at events)
@@ -96,25 +118,3 @@ Swiz, for example supports this syntax:
 But I think it would be nice to keep things in line with how custom events are normally documented (with name and type arguments):
 
 [Event(name="click", type="flash.events.Event")]
-
-h3. Object Lifecycle - Teardown:
-
-SwiftSuspenders, SmartyPants, Dawn: none?
-Swiz: [PreDestroy] (above method)
-Spicelib: [Destroy] (above method)
-
-h4. Most popular
-
-h4. Notes
-
-@PreDestroy is used in Java for the same purpose. Let's use the most familiar, established one.
-
-h3. Factory/Provider:
-
-SwiftSuspenders, SmartyPants, Swiz: none?
-Dawn: [Provider] (above method)
-Spicelib: [Factory] (above method)
-
-h4. Most popular
-
-h4. Notes
