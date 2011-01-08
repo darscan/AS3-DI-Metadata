@@ -32,9 +32,25 @@ h4. Notes
 
 Since you can define default attributes best practice could be to leave out the attribute: [Inject("SomeName")]
 
+SwiftSuspenders comment: While there might, in the future, be demand for more named parameters, "name" is certain to be the most frequently used one. Thus, SwiftSuspenders will adapt this proposal as a supported feature and document it as best practice.
+
+h2. Live Injections
+
+SmartyPants: [Inject(live)] (above property, setter or method)
+SwiftSuspenders: Not yet supported
+Spicelib, Swiz, Spring AS, Dawn: ?
+
+h4. Most popular
+
+[Inject(live)] by 1
+
+h4. Notes
+
+SwiftSuspenders comment: SwiftSuspenders will support live injections in a future release. When that happens, we will adopt the "live" parameter used by SmartyPants.
+
 h2. Constructor Injection:
 
-SwiftSuspenders: [Inject] (above class)
+SwiftSuspenders: [Inject] (optional, above class)
 Spicelib: [InjectConstructor] (above class)
 Swiz, Spring AS, Dawn: ?
 
@@ -45,6 +61,24 @@ h4. Most popular
 h4. Notes
 
 I don't see the need for an extra tag ([InjectConstructor]) when we could simply use [Inject].
+
+SwiftSuspenders comment: Metadata annotation for constructors is only required if the injection is to be parameterized in some way, i.e., if one or more of the constructor's dependency should be named. Otherwise, injection will just work.
+
+h2. Optional Injections
+
+SmartyPants: Not directly supported, but implied by [Inject(live)]
+SwiftSuspenders: Not yet supported
+Spicelib, Swiz, Spring AS, Dawn: ?
+
+h4. Most popular
+
+?
+
+h4. Notes
+
+SwiftSuspenders comment: We propose to use [Inject(optional)] for optional injections, i.e. for injections that don't make the injection throw if now mapping is found for the dependency. A future release of SwiftSuspenders will likely support this.
+
+Additionally, we propose to let [Inject(live)] imply [Inject(optional)] as SmartyPants does.
 
 h2. Object Lifecycle - Post Injection:
 
@@ -59,6 +93,8 @@ h4. Notes
 
 @PostConstruct is used in Java for the same purpose. Let's use the most popular, established one.
 
+SwiftSuspenders comment: SwiftSuspenders supports the - optional - parameter "order", enabling the ordered invocation of multiple PostConstruct-annotated methods. As this is also used in Java for the same purpose, we propose to adopt it as a standard, too.
+
 h2. Object Lifecycle - Teardown:
 
 SwiftSuspenders, SmartyPants, Dawn: none?
@@ -71,6 +107,8 @@ h4. Notes
 
 @PreDestroy is used in Java for the same purpose. Let's use the most familiar, established one.
 
+SwiftSuspenders comment: SwiftSuspenders will likely gain support for full Livecycle management in version 2. If and when that happens, we will adopt the [PreDestroy] annotation.
+
 h2. Factory/Provider:
 
 SwiftSuspenders, SmartyPants, Swiz: none?
@@ -80,6 +118,8 @@ Spicelib: [Factory] (above method)
 h4. Most popular
 
 h4. Notes
+
+SwiftSuspenders comment: SwiftSuspenders will most likely gain full support for factory injection in version 2. If and when that happens, we will adopt the [Factory] annotation (most likely with some optional parameters, which are to be determined).
 
 h2. Event handling
 
@@ -119,4 +159,8 @@ h4. Notes
 
 [EventHandler] is clear in its purpose and intent. Flash Player is an event based runtime, so the standard should be based on Events.
 
+SwiftSuspenders comment: Should SwiftSuspenders support event handling in a future release, it will adopt the [EventHandler] annotation with the "name" and "type" parameters as in [Event].
+
 Is event handling outside of the scope of this document?
+
+SwiftSuspenders comment: As most or all participating implementations seem to be geared towards becoming full livecycle-management solutions and/ or metadata processors, it seems to us that standardizing event handling is a good idea. Maybe we should rename this document, though :)
